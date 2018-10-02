@@ -21,9 +21,17 @@ function goSearch ($q) {
 	go("$sttm/search?q=$q");
 }
 
-function goShabad ($n) {
+function goShabad ($n, $h) {
 	global $sttm;
-	is_numeric($n)? go("$sttm/shabad?id=$n") : go($sttm);
+	if (is_numeric($n)) {
+		if (is_numeric($h)) {
+			go("$sttm/shabad?id=$n&highlight=$h");
+		} else {
+			go("$sttm/shabad?id=$n");
+		}
+	} else {
+		go($sttm);
+	}
 }
 
 switch($path[0]) {
@@ -40,7 +48,7 @@ switch($path[0]) {
 		go("$sttm/random");
 		break;
 	case 's':
-		goShabad($path[1]);
+		goShabad($path[1], $path[2]);
 		break;
 	default:
 		go($sttm.$_SERVER['REQUEST_URI']);
