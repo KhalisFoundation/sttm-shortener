@@ -11,6 +11,10 @@ function go ($url) {
 	exit;
 }
 
+function goDownload () {
+	go('https://khalisfoundation.org/portfolio/sikhitothemax-everywhere/');
+}
+
 function goAng ($n) {
 	global $sttm;
 	is_numeric($n)? go("$sttm/ang?ang=$n&source=G") : go($sttm);
@@ -37,6 +41,9 @@ function goShabad ($n, $h) {
 switch($path[0]) {
 	case 'a':
 		goAng($path[1]);
+		break;
+	case 'd': case 'download':
+		goDownload();
 		break;
 	case 'h':
 		go("$sttm/hukamnama");
