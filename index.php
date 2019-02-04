@@ -57,6 +57,9 @@ switch($path[0]) {
 	case 's':
 		goShabad($path[1], $path[2]);
 		break;
+	case 'sg':
+		go("$sttm/sundar-gutka");
+		break;
 	default:
 		go($sttm.$_SERVER['REQUEST_URI']);
 		break;
