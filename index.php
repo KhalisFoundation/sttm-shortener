@@ -60,6 +60,9 @@ switch($path[0]) {
 	case 'sg':
 		go("$sttm/sundar-gutka");
 		break;
+	case 'i'"
+		go("$sttm/index");
+		break;
 	default:
 		go($sttm.$_SERVER['REQUEST_URI']);
 		break;
