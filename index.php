@@ -53,10 +53,10 @@ switch($path[0]) {
 	case 'd': case 'download':
 		goDownload();
 		break;
-	case 'beta-mac'
+	case 'beta-mac':
 		goDownloadBetaMac();
 		break;
-	case 'beta-win'
+	case 'beta-win':
 		goDownloadBetaWin();
 		break;
 	case 'h':
