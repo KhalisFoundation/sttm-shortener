@@ -57,7 +57,7 @@ switch($path[0]) {
 		goDownloadBetaMac();
 		break;
 	case 'beta-win'
-		goDownloadBetaMac();
+		goDownloadBetaWin();
 		break;
 	case 'h':
 		go("$sttm/hukamnama");
