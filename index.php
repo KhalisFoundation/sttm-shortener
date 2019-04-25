@@ -15,6 +15,14 @@ function goDownload () {
 	go('https://khalisfoundation.org/portfolio/sikhitothemax-everywhere/');
 }
 
+function goDownloadBetaMac () {
+	go('https://s3-us-west-2.amazonaws.com/sttm-releases/mac-x64/SikhiToTheMax+Beta-4.5.0-beta.0.dmg');
+}
+
+function goDownloadBetaWin () {
+	go('https://s3-us-west-2.amazonaws.com/sttm-releases/win-x64/SikhiToTheMaxSetup-4.5.0-beta.1.exe');
+}
+
 function goAng ($n) {
 	global $sttm;
 	is_numeric($n)? go("$sttm/ang?ang=$n&source=G") : go($sttm);
@@ -44,6 +52,12 @@ switch($path[0]) {
 		break;
 	case 'd': case 'download':
 		goDownload();
+		break;
+	case 'beta-mac'
+		goDownloadBetaMac();
+		break;
+	case 'beta-win'
+		goDownloadBetaMac();
 		break;
 	case 'h':
 		go("$sttm/hukamnama");
