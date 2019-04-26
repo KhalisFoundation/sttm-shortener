@@ -16,11 +16,11 @@ function goDownload () {
 }
 
 function goDownloadBetaMac () {
-	go('https://s3-us-west-2.amazonaws.com/sttm-releases/mac-x64/SikhiToTheMax+Beta-4.5.0-beta.0.dmg');
+	go('https://s3-us-west-2.amazonaws.com/sttm-releases/mac-x64/SikhiToTheMax+Beta-5.0.0-beta.0.dmg');
 }
 
 function goDownloadBetaWin () {
-	go('https://s3-us-west-2.amazonaws.com/sttm-releases/win-x64/SikhiToTheMaxSetup-4.5.0-beta.1.exe');
+	go('https://s3-us-west-2.amazonaws.com/sttm-releases/win-x64/SikhiToTheMaxSetup-5.0.0-beta.0.exe');
 }
 
 function goAng ($n) {
