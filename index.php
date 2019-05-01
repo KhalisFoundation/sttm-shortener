@@ -74,7 +74,7 @@ switch($path[0]) {
 	case 'sg':
 		go("$sttm/sundar-gutka");
 		break;
-	case 'i'"
+	case 'i':
 		go("$sttm/index");
 		break;
 	default:
