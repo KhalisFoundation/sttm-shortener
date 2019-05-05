@@ -20,7 +20,7 @@ function goDownloadBetaMac () {
 }
 
 function goDownloadBetaWin () {
-	go('https://s3-us-west-2.amazonaws.com/sttm-releases/win-x64/SikhiToTheMaxSetup-5.0.0-beta.0.exe');
+	go('https://s3-us-west-2.amazonaws.com/sttm-releases/win-x64/SikhiToTheMaxSetup-5.0.0-beta.4.exe');
 }
 
 function goAng ($n) {
