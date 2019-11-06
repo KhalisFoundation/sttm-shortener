@@ -23,6 +23,10 @@ function goDownloadBetaWin () {
 	go('https://s3-us-west-2.amazonaws.com/sttm-releases/win-x64/SikhiToTheMaxSetup-5.0.0-beta.5.exe');
 }
 
+function goFeedback () {
+	go('https://form.jotform.com/80266126732151');
+}
+
 function goAng ($n) {
 	global $sttm;
 	is_numeric($n)? go("$sttm/ang?ang=$n&source=G") : go($sttm);
@@ -59,6 +63,9 @@ switch($path[0]) {
 	case 'beta-win':
 		goDownloadBetaWin();
 		break;
+	case 'feedback':
+		goFeedback();
+		break;		
 	case 'h':
 		go("$sttm/hukamnama");
 		break;
