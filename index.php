@@ -37,12 +37,12 @@ function goAngD ($n) {
 	is_numeric($n)? go("$sttm/ang?ang=$n&source=D") : go($sttm);
 }
 
-function goAngB ($n) {
+function goAngV ($n) {
 	global $sttm;
-	is_numeric($n)? go("$sttm/ang?ang=$n&source=B") : go($sttm);
+	is_numeric($n)? go("$sttm/ang?ang=$n&source=V") : go($sttm);
 }
 
-function goAngS ($n) {
+function goAngGS ($n) {
 	global $sttm;
 	is_numeric($n)? go("$sttm/ang?ang=$n&source=S") : go($sttm);
 }
@@ -67,16 +67,18 @@ function goShabad ($n, $h) {
 
 switch($path[0]) {
 	case 'a':
+	case 'g':
 		goAngG($path[1]);
 		break;
 	case 'd':
 		goAngD($path[1]);
 		break;
 	case 'b':
-		goAngB($path[1]);
+	case 'v':
+		goAngV($path[1]);
 		break;
-	case 's':
-		goAngS($path[1]);
+	case 'gs':
+		goAngGS($path[1]);
 		break;
 	case 'dl': case 'download':
 		goDownload();
@@ -103,6 +105,7 @@ switch($path[0]) {
 		goShabad($path[1], $path[2]);
 		break;
 	case 'sg':
+	case 'sunder-gutka':
 		go("$sttm/sundar-gutka");
 		break;
 	case 'i':
