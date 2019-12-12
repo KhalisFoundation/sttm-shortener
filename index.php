@@ -27,9 +27,24 @@ function goFeedback () {
 	go('https://form.jotform.com/80266126732151');
 }
 
-function goAng ($n) {
+function goAngG ($n) {
 	global $sttm;
 	is_numeric($n)? go("$sttm/ang?ang=$n&source=G") : go($sttm);
+}
+
+function goAngD ($n) {
+	global $sttm;
+	is_numeric($n)? go("$sttm/ang?ang=$n&source=D") : go($sttm);
+}
+
+function goAngB ($n) {
+	global $sttm;
+	is_numeric($n)? go("$sttm/ang?ang=$n&source=B") : go($sttm);
+}
+
+function goAngS ($n) {
+	global $sttm;
+	is_numeric($n)? go("$sttm/ang?ang=$n&source=S") : go($sttm);
 }
 
 function goSearch ($q) {
@@ -52,9 +67,18 @@ function goShabad ($n, $h) {
 
 switch($path[0]) {
 	case 'a':
-		goAng($path[1]);
+		goAngG($path[1]);
 		break;
-	case 'd': case 'download':
+	case 'd':
+		goAngD($path[1]);
+		break;
+	case 'b':
+		goAngB($path[1]);
+		break;
+	case 's':
+		goAngS($path[1]);
+		break;
+	case 'dl': case 'download':
 		goDownload();
 		break;
 	case 'beta-mac':
@@ -65,7 +89,7 @@ switch($path[0]) {
 		break;
 	case 'feedback':
 		goFeedback();
-		break;		
+		break;
 	case 'h':
 		go("$sttm/hukamnama");
 		break;
@@ -88,4 +112,3 @@ switch($path[0]) {
 		go($sttm.$_SERVER['REQUEST_URI']);
 		break;
 }
-
