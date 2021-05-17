@@ -74,7 +74,7 @@ function goShabad($n, $h)
 	} else {
 		$multiShabads = strpos($n, ',');
 		$multiHighlight = strpos($h, ',');
-		if ($multiShabads & $multiHighlight) {
+		if ($multiShabads && $multiHighlight) {
 			go("$sttm/shabad?id=$n&highlight=$h");
 			return;
 		}
