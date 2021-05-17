@@ -1,9 +1,10 @@
 <?php
 
-$path = explode('/',$_GET['path']);
+$path = explode('/', $_GET['path']);
 $sttm = 'https://www.sikhitothemax.org';
 
-function go ($url) {
+function go($url)
+{
 	header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 	header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
 	header('HTTP/1.1 301 Moved Permanently');
@@ -11,48 +12,58 @@ function go ($url) {
 	exit;
 }
 
-function goDownload () {
+function goDownload()
+{
 	go('https://khalisfoundation.org/portfolio/sikhitothemax-everywhere/');
 }
 
-function goDownloadBetaMac () {
+function goDownloadBetaMac()
+{
 	go('https://s3-us-west-2.amazonaws.com/sttm-releases/mac-x64/SikhiToTheMax+Beta-5.0.0-beta.0.dmg');
 }
 
-function goDownloadBetaWin () {
+function goDownloadBetaWin()
+{
 	go('https://s3-us-west-2.amazonaws.com/sttm-releases/win-x64/SikhiToTheMaxSetup-5.0.0-beta.5.exe');
 }
 
-function goFeedback () {
+function goFeedback()
+{
 	go('https://form.jotform.com/80266126732151');
 }
 
-function goAngG ($n) {
+function goAngG($n)
+{
 	global $sttm;
-	is_numeric($n)? go("$sttm/ang?ang=$n&source=G") : go($sttm);
+	is_numeric($n) ? go("$sttm/ang?ang=$n&source=G") : go($sttm);
 }
 
-function goAngD ($n) {
+function goAngD($n)
+{
 	global $sttm;
-	is_numeric($n)? go("$sttm/ang?ang=$n&source=D") : go($sttm);
+	is_numeric($n) ? go("$sttm/ang?ang=$n&source=D") : go($sttm);
 }
 
-function goAngV ($n) {
+function goAngV($n)
+{
 	global $sttm;
-	is_numeric($n)? go("$sttm/ang?ang=$n&source=V") : go($sttm);
+	is_numeric($n) ? go("$sttm/ang?ang=$n&source=V") : go($sttm);
 }
 
-function goAngGS ($n) {
+function goAngGS($n)
+{
 	global $sttm;
-	is_numeric($n)? go("$sttm/ang?ang=$n&source=S") : go($sttm);
+	is_numeric($n) ? go("$sttm/ang?ang=$n&source=S") : go($sttm);
 }
 
-function goSearch ($q) {
+function goSearch($q)
+{
 	global $sttm;
 	go("$sttm/search?q=$q");
 }
 
-function goShabad ($n, $h) {
+function goShabad($n, $h)
+{
 	global $sttm;
 	if (is_numeric($n)) {
 		if (is_numeric($h)) {
@@ -61,11 +72,17 @@ function goShabad ($n, $h) {
 			go("$sttm/shabad?id=$n");
 		}
 	} else {
+		$multiShabads = strpos($n, ',');
+		$multiHighlight = strpos($h, ',');
+		if ($multiShabads & $multiHighlight) {
+			go("$sttm/shabad?id=$n&highlight=$h");
+			return;
+		}
 		go($sttm);
 	}
 }
 
-switch($path[0]) {
+switch ($path[0]) {
 	case 'a':
 	case 'g':
 		goAngG($path[1]);
@@ -80,7 +97,8 @@ switch($path[0]) {
 	case 'gs':
 		goAngGS($path[1]);
 		break;
-	case 'dl': case 'download':
+	case 'dl':
+	case 'download':
 		goDownload();
 		break;
 	case 'beta-mac':
@@ -112,6 +130,6 @@ switch($path[0]) {
 		go("$sttm/index");
 		break;
 	default:
-		go($sttm.$_SERVER['REQUEST_URI']);
+		go($sttm . $_SERVER['REQUEST_URI']);
 		break;
 }
